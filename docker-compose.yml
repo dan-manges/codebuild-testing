@@ -11,3 +11,10 @@ services:
     image: "redis:2.8.9"
     ports:
       - "6379:6379"
+  app:
+    build: .
+    volumes:
+      - .:/codebuild-testing
+    depends_on:
+      - postgres
+      - redis
