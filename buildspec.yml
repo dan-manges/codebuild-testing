@@ -8,7 +8,8 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - echo Compiling the Ruby code...
+      - curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+      - docker-compose --version
       - rspec hello_world_spec.rb
   post_build:
     commands:
